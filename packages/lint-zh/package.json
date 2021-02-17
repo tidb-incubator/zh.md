@@ -1,0 +1,27 @@
+{
+  "name": "lint-zh",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.0",
+    "@types/unist": "^2.0.3",
+    "chai": "^4.3.0",
+    "remark": "^13.0.0",
+    "remark-retext": "^4.0.0",
+    "retext-chinese": "0.1.2",
+    "retext-english": "^3.0.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5",
+    "unherit": "^1.1.3",
+    "unified": "^9.2.0",
+    "unified-lint-rule": "^1.0.6",
+    "unist-util-visit": "^2.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.0"
+  }
+}
