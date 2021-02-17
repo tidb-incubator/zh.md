@@ -1,12 +1,13 @@
 {
   "name": "preset-lint-zh",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/index.js",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "lint-zh": "0.1.1",
+    "lint-zh": "0.1.2",
     "remark-frontmatter": "^3.0.0",
     "remark-gfm": "^1.0.0",
     "remark-retext": "^4.0.0",

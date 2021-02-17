@@ -200,10 +200,10 @@ is-plain-obj@^2.0.0:
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
   integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
 
-lint-zh@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/lint-zh/-/lint-zh-0.1.1.tgz#6339264ae4110b81420745b7a963a1378f7d268c"
-  integrity sha512-5ANokDFEuzT8QhMKY5469Rknop3Oa0EPgBI5iGdgbMLWokBcFv/hAT+T43dI/ZFT9Pf+C11wQZDK/7KvuabDBA==
+lint-zh@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/lint-zh/-/lint-zh-0.1.2.tgz#ed718f37ccad383b8e74c408b1f9b4aa140fe119"
+  integrity sha512-+tHP6xysybLgKvhsSK/e+tumNvTvQj09TEpNUqr2AM7GMYrzhb2oY9B0sHGqlb5SV1vjx6HBJDcPP4Jiw8Jr7A==
   dependencies:
     "@types/chai" "^4.2.15"
     "@types/mocha" "^8.2.0"
