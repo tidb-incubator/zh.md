@@ -1,0 +1,18 @@
+{
+  "name": "preset-lint-zh",
+  "version": "0.1.1",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "lint-zh": "0.1.1",
+    "remark-frontmatter": "^3.0.0",
+    "remark-gfm": "^1.0.0",
+    "remark-retext": "^4.0.0",
+    "remark-stringify": "^9.0.1",
+    "retext-chinese": "^0.1.2",
+    "typescript": "^4.1.5",
+    "unified": "^9.2.0"
+  }
+}
