@@ -3,7 +3,7 @@ import {PUNCTUATION} from "retext-chinese";
 import {rule, visit} from "./utils";
 import {isPunctuation} from "nlcst-types";
 import {isComma} from "retext-chinese/lib";
-import {ZHError} from "./error";
+import * as ZHError from "./error";
 
 const ALLOW_END_PUNCTUATION = [
   PUNCTUATION.STOP,

@@ -1,7 +1,7 @@
 import {isStartOrEndInArray, rule, visit} from "./utils";
 import {isWhiteSpace} from "nlcst-types";
 import {isSlash, Punctuation} from "retext-chinese";
-import {ZHError} from "./error";
+import * as ZHError from "./error";
 
 // 斜杠前后不准有空格
 export const ZH414 = rule(":ZH414", (tree, file) => {

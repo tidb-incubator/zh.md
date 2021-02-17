@@ -1,6 +1,6 @@
 import {getNear, rule, visit} from "./utils";
 import {isPunctuation, isWhiteSpace, isWord} from "nlcst-types";
-import {ZHError} from "./error";
+import * as ZHError from "./error";
 import {WhiteSpace} from "retext-chinese";
 
 export const ZH425 = rule(":ZH425", (tree, file) => {

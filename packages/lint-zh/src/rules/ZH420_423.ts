@@ -1,7 +1,7 @@
 import {isPunctuation, isWhiteSpace, isWord} from "nlcst-types";
 import {rule, visit} from "./utils";
 import {isLeftParenthesis, isRightParenthesis, SentenceNode} from "retext-chinese";
-import {ZHError} from "./error";
+import * as ZHError from "./error";
 
 
 //括号里全为英文时建议使用半角括号，并在括号前后各空一个半角空格，括号和括号内的英文之间不需要空格。

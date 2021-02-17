@@ -2,7 +2,7 @@ import {rule, visit} from "./utils";
 import {isHyphen, Punctuation} from "retext-chinese";
 import {isWhiteSpace} from "nlcst-types";
 import {isStartOrEndInArray} from "retext-chinese/lib/parser";
-import {ZHError} from "./error";
+import * as ZHError from "./error";
 
 // 连接与破折号前后不准有空格
 export const ZH410 = rule(":ZH410", (tree, file) => {

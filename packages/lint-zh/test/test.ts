@@ -4,8 +4,7 @@ import "mocha"
 import {plugins} from "../src/index";
 
 import {expect} from "chai"
-import {ZHError} from "../src/rules/error";
-
+import  * as ZHError from "../src/rules/error";
 const remark = require("remark");
 
 
