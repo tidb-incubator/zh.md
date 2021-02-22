@@ -1,5 +1,5 @@
 import {rule, visit, visitChildren} from "./utils";
-import {Punctuation} from "retext-chinese";
+import {Punctuation} from "nlcst-parser-chinese";
 
 export const hasFullwidthInEn = rule(':ZH417', (tree, file) => {
 

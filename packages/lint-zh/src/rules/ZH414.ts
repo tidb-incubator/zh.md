@@ -1,6 +1,6 @@
 import {isStartOrEndInArray, rule, visit} from "./utils";
 import {isWhiteSpace} from "nlcst-types";
-import {isSlash, Punctuation} from "retext-chinese";
+import {isSlash, Punctuation} from "nlcst-parser-chinese";
 import * as ZHError from "./error";
 
 // 斜杠前后不准有空格

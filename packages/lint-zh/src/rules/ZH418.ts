@@ -1,5 +1,5 @@
 //。！？：
-import {PUNCTUATION, SentenceNode} from "retext-chinese";
+import {PUNCTUATION, SentenceNode} from "nlcst-parser-chinese";
 import {getNear, rule, visit} from "./utils";
 import {isPunctuation} from "nlcst-types";
 

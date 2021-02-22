@@ -524,19 +524,18 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-zh@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/lint-zh/-/lint-zh-0.1.2.tgz#ed718f37ccad383b8e74c408b1f9b4aa140fe119"
-  integrity sha512-+tHP6xysybLgKvhsSK/e+tumNvTvQj09TEpNUqr2AM7GMYrzhb2oY9B0sHGqlb5SV1vjx6HBJDcPP4Jiw8Jr7A==
+lint-zh@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lint-zh/-/lint-zh-0.2.0.tgz#bf2d9ef2b581298b5807aef910e2d59225b82acd"
+  integrity sha512-mRHYrzDRQlVGLfP8n3xL4utb7uxRnE1hBtZ0pVbsxM+2s02EbupXXkh076vbMlKODz+d1n0XrPEPT7bJ+NrG4A==
   dependencies:
     "@types/chai" "^4.2.15"
     "@types/mocha" "^8.2.0"
     "@types/unist" "^2.0.3"
     chai "^4.3.0"
+    nlcst-parser-chinese "^0.0.1"
     remark "^13.0.0"
     remark-retext "^4.0.0"
-    retext-chinese "0.1.2"
-    retext-english "^3.0.4"
     ts-node "^9.1.1"
     typescript "^4.1.5"
     unherit "^1.1.3"
@@ -755,6 +754,22 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+nlcst-parser-chinese@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/nlcst-parser-chinese/-/nlcst-parser-chinese-0.0.1.tgz#4cda43d6a02fcef58ab9f2389cffce11f4567dff"
+  integrity sha512-k5V6NXFRYfZHG+KQtQRGWuYJ/+hvpfYjt97SUZSb6BjOZZiBLEQBYXK/vDKGhbwwRDQsL9jnYkGCCTSc6BqhJA==
+  dependencies:
+    "@types/node" "^14.14.27"
+    "@types/unist" "^2.0.3"
+    nlcst-to-string "^2.0.4"
+    nlcst-types "^1.2.3"
+    parse-english "^4.2.0"
+    string-width "^4.2.0"
+    unherit "^1.1.3"
+    unist-util-inspect "^6.0.1"
+    unist-util-modify-children "^2.0.0"
+    unist-util-visit "^2.0.3"
+
 nlcst-to-string@^2.0.0, nlcst-to-string@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/nlcst-to-string/-/nlcst-to-string-2.0.4.tgz#9315dfab80882bbfd86ddf1b706f53622dc400cc"
@@ -798,7 +813,7 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-parse-english@^4.0.0, parse-english@^4.2.0:
+parse-english@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/parse-english/-/parse-english-4.2.0.tgz#037b68f34d1a1bdf3d33668b87791bdfc1f01e1e"
   integrity sha512-jw5N6wZUZViIw3VLG/FUSeL3vDhfw5Q2g4E3nYC69Mm5ANbh9ZWd+eligQbeUoyObZM8neynTn3l14e09pjEWg==
@@ -940,7 +955,7 @@ resolve-from@^5.0.0:
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
 
-retext-chinese@0.1.2, retext-chinese@^0.1.2:
+retext-chinese@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/retext-chinese/-/retext-chinese-0.1.2.tgz#a79e6fc9ef14f59733109eb7ca1cb7c880500d5c"
   integrity sha512-1E+iZz3RfFJdN0Ok1UPYV8QsAJEGeBW5v8qz5rC7sgfQPtnaeKvdZbNL8t+OsjL91jA8Q9X+l9D4B5f2Vj2N1w==
@@ -955,14 +970,6 @@ retext-chinese@0.1.2, retext-chinese@^0.1.2:
     unist-util-inspect "^6.0.1"
     unist-util-modify-children "^2.0.0"
     unist-util-visit "^2.0.3"
-
-retext-english@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/retext-english/-/retext-english-3.0.4.tgz#f978828d51fbcee842bc3807a45b7f709822ea8d"
-  integrity sha512-yr1PgaBDde+25aJXrnt3p1jvT8FVLVat2Bx8XeAWX13KXo8OT+3nWGU3HWxM4YFJvmfqvJYJZG2d7xxaO774gw==
-  dependencies:
-    parse-english "^4.0.0"
-    unherit "^1.0.4"
 
 safe-buffer@~5.2.0:
   version "5.2.1"
@@ -1088,7 +1095,7 @@ typescript@^4.1.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.5.tgz#123a3b214aaff3be32926f0d8f1f6e704eb89a72"
   integrity sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
 
-unherit@^1.0.4, unherit@^1.1.3:
+unherit@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/unherit/-/unherit-1.1.3.tgz#6c9b503f2b41b262330c80e91c8614abdaa69c22"
   integrity sha512-Ft16BJcnapDKp0+J/rqFC3Rrk6Y/Ng4nzsC028k2jdDII/rdZ7Wd3pPT/6+vIIxRagwRc9K0IUX0Ra4fKvw+WQ==

@@ -1,9 +1,9 @@
-import {Punctuation} from "retext-chinese";
+import {Punctuation} from "nlcst-parser-chinese";
 
 const r = require("unified-lint-rule")
 import v = require("unist-util-visit");
 import {Node, Parent, Point} from "unist"
-import {NodeCheckFunc} from "retext-chinese/lib/punctuation";
+import {NodeCheckFunc} from "nlcst-parser-chinese";
 import {Sentence} from "nlcst-types";
 
 

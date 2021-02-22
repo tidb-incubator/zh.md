@@ -8,12 +8,13 @@ import {ZH420_423} from "./rules/ZH420_423";
 import {ZH417} from "./rules/ZH417";
 import {ZH425} from "./rules/ZH425";
 import {ZH418} from "./rules/ZH418";
+import {Chinese} from "nlcst-parser-chinese";
 
 export const plugins = [
   [
     require("remark-retext"),
     require("unified")()
-      .use(require("retext-chinese/lib/remark-chinese"))
+      .use(Chinese)
       // ZH400
       .use(ZH400)
       .use(ZH401)

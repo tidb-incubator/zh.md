@@ -1,7 +1,7 @@
 import {getNear, rule, visit} from "./utils";
 import {isPunctuation, isWhiteSpace, isWord} from "nlcst-types";
 import * as ZHError from "./error";
-import {WhiteSpace} from "retext-chinese";
+import {WhiteSpace} from "nlcst-parser-chinese";
 
 export const ZH425 = rule(":ZH425", (tree, file) => {
   visit(tree, "SentenceNode", (_sen: any, i, parent) => {
