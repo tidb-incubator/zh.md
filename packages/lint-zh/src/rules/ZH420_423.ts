@@ -1,6 +1,6 @@
 import {isPunctuation, isWhiteSpace, isWord} from "nlcst-types";
 import {rule, visit} from "./utils";
-import {isLeftParenthesis, isRightParenthesis, SentenceNode} from "retext-chinese";
+import {isLeftParenthesis, isRightParenthesis, SentenceNode} from "nlcst-parser-chinese";
 import * as ZHError from "./error";
 
 

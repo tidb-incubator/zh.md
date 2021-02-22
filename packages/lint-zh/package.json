@@ -1,6 +1,6 @@
 {
   "name": "lint-zh",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "scripts": {
@@ -11,10 +11,9 @@
     "@types/mocha": "^8.2.0",
     "@types/unist": "^2.0.3",
     "chai": "^4.3.0",
+    "nlcst-parser-chinese": "^0.0.1",
     "remark": "^13.0.0",
     "remark-retext": "^4.0.0",
-    "retext-chinese": "0.1.2",
-    "retext-english": "^3.0.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
     "unherit": "^1.1.3",

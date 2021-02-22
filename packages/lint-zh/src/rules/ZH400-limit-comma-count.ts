@@ -1,4 +1,4 @@
-import {isComma} from "retext-chinese/lib";
+import {isComma} from "nlcst-parser-chinese";
 import {baseCountRule} from "./utils";
 
 export const limitCommaCount = baseCountRule(":ZH400", "comma", isComma, "lt", 6)

@@ -1,7 +1,6 @@
 import {rule, visit} from "./utils";
-import {isHyphen, Punctuation} from "retext-chinese";
+import {isHyphen, Punctuation, isStartOrEndInArray} from "nlcst-parser-chinese";
 import {isWhiteSpace} from "nlcst-types";
-import {isStartOrEndInArray} from "retext-chinese/lib/parser";
 import * as ZHError from "./error";
 
 // 连接与破折号前后不准有空格
