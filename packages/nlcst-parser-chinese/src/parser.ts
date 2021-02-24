@@ -119,11 +119,17 @@ function createNewSentence(children: Node[]): Parent {
   };
 }
 
+type CreateNodeFn = (value: string, eat: Node, parent: Node) => Node
 
-export class ChineseParser{
+export class ChineseParser {
   private parser: {
     tokenize: (text: string) => Root,
-    parse: (text: string) => Root
+    parse: (text: string) => Root,
+    tokenizeSymbol: CreateNodeFn,
+    tokenizeWhiteSpace: CreateNodeFn,
+    tokenizePunctuation: CreateNodeFn,
+    tokenizeSource: CreateNodeFn,
+    tokenizeText: CreateNodeFn,
   };
 
   constructor() {
@@ -139,4 +145,21 @@ export class ChineseParser{
     addSentenceMeta(root)
     return root
   }
+
+  tokenizeText: CreateNodeFn = (value, eat, parent) => {
+    return this.parser.tokenizeText(value, eat, parent)
+  }
+  tokenizeSource: CreateNodeFn = (value, eat, parent) => {
+    return this.parser.tokenizeSource(value, eat, parent)
+  }
+  tokenizePunctuation: CreateNodeFn = (value, eat, parent) => {
+    return this.parser.tokenizePunctuation(value, eat, parent)
+  }
+  tokenizeWhiteSpace: CreateNodeFn = (value, eat, parent) => {
+    return this.parser.tokenizeWhiteSpace(value, eat, parent)
+  }
+  tokenizeSymbol: CreateNodeFn = (value, eat, parent) => {
+    return this.parser.tokenizeSymbol(value, eat, parent)
+  }
+
 }

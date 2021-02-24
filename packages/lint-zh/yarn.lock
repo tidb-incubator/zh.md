@@ -558,10 +558,10 @@ nanoid@3.1.20:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
   integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
 
-nlcst-parser-chinese@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/nlcst-parser-chinese/-/nlcst-parser-chinese-0.0.1.tgz#4cda43d6a02fcef58ab9f2389cffce11f4567dff"
-  integrity sha512-k5V6NXFRYfZHG+KQtQRGWuYJ/+hvpfYjt97SUZSb6BjOZZiBLEQBYXK/vDKGhbwwRDQsL9jnYkGCCTSc6BqhJA==
+nlcst-parser-chinese@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/nlcst-parser-chinese/-/nlcst-parser-chinese-0.0.2.tgz#0ef58d1849a7f85b19b2f80a75bfcbd8daaed957"
+  integrity sha512-wjhW6ppe2q6Ky012FW925f7kn1uBvi5RvFOkmy9Q/2z2UwPwkG46RSRHo0kjrK2Wj0PCAB6VUyuA5gkcuXvfiw==
   dependencies:
     "@types/node" "^14.14.27"
     "@types/unist" "^2.0.3"
