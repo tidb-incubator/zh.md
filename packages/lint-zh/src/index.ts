@@ -15,9 +15,7 @@ export const plugins = [
     require("remark-retext"),
     require("unified")()
       .use(Chinese)
-      // ZH400
       .use(ZH400)
-      .use(ZH401)
       .use(ZH403)
       .use(ZH410)
       .use(ZH414)
