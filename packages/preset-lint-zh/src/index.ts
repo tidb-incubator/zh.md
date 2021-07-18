@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import {ZH400, ZH403, ZH416, ZH417, ZH418, ZH420_423, ZH425} from "lint-zh/lib";
 import {Chinese} from "nlcst-parser-chinese";
 import unified = require("unified");
