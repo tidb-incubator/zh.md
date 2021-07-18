@@ -17,7 +17,7 @@ export const plugins = [
       .use(Chinese)
       .use(ZH400)
       .use(ZH403)
-      .use(ZH410)
+      // .use(ZH410)
       .use(ZH414)
       .use(ZH416)
       .use(ZH417)

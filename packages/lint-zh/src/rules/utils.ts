@@ -1,18 +1,24 @@
 import {Punctuation} from "nlcst-parser-chinese";
+var VMessage = require('vfile-message')
 
 const r = require("unified-lint-rule")
 import v = require("unist-util-visit");
 import {Node, Parent, Point} from "unist"
 import {NodeCheckFunc} from "nlcst-parser-chinese";
 import {Sentence} from "nlcst-types";
+import {VFile} from "vfile";
 
 
 type visitI = (tree: Parent, type: string, cb: (node: Sentence | Parent, index: number, parent: Parent) => void) => void
 // @ts-ignore
 export const visit: visitI = v;
 
-export interface VFile {
-  message: (msg: string, node?: Node | Point, ruleId?: string) => void
+
+
+export const errorMsg = (file: VFile, reason: string, node?: Node | Point, ruleId?: string) => {
+  var message = new VMessage(reason, node, ruleId)
+  message.fatal = true
+  file.messages.push(message)
 }
 
 export const rule: ruleI = r
@@ -64,3 +70,17 @@ export const getNear = (i: number, children: Node[]) => {
 export const isStartOrEndInArray = (i: number, children: Node[]) => {
   return i === 0 || children.length - 1 === i;
 };
+
+
+export const lintRule = (id: string, fn: (node: Parent, file: VFile, options: any) => void) => {
+  attacher.displayName = id
+
+  return attacher
+  function attacher() {
+    return transformer
+    function transformer(tree: Parent, file: VFile, next: Function) {
+      fn(tree, file, {})
+      next()
+    }
+  }
+}

@@ -13,7 +13,7 @@ export {
   isLeftParenthesis,
   isPause,
   PUNCTUATION_META,
-  NodeCheckFunc
+  NodeCheckFunc,
 } from "./punctuation"
 
 

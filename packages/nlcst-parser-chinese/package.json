@@ -1,6 +1,6 @@
 {
   "name": "nlcst-parser-chinese",
-  "version": "0.0.2",
+  "version": "1.0.0-rc1",
   "scripts": {
     "build": "tsc",
     "test": "node test.js"

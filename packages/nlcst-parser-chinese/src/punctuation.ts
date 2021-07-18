@@ -1,6 +1,8 @@
 import {Node} from "unist";
 import {PunctuationNode} from "./node";
 
+export type NodeCheckFunc = (node: Node) => boolean;
+
 export enum PUNCTUATION {
   STOP,
   COMMA,
@@ -19,7 +21,10 @@ export enum PUNCTUATION {
   LEFT_DOUBLE_QUOTATION_MARK,
   RIGHT_DOUBLE_QUOTATION_MARK,
 
-  UNKNOWN
+  BOOK,
+  UNKNOWN,
+
+  END,
 }
 
 export interface PUNCTUATION_META {
@@ -27,15 +32,25 @@ export interface PUNCTUATION_META {
   isFull: boolean,
   isCN: boolean,
   alias: string,
+  isStart: boolean,
+  isEnd: boolean
 }
-const pMAP:Record<string, PUNCTUATION_META> = {}
 
-function createP(name: PUNCTUATION, v: string, isFull = false, ensureCN = false, alias = "") {
+const pMAP: Record<string, PUNCTUATION_META> = {}
+
+function createP(name: PUNCTUATION, v: string, isFull = false,
+                 ensureCN = false,
+                 alias = "",
+                 isStart: boolean = false,
+                 isEnd: boolean = false,
+) {
   pMAP[v] = {
     name,
     isFull,
     isCN: ensureCN || isFull,
-    alias
+    alias,
+    isStart,
+    isEnd
   }
 }
 
@@ -72,19 +87,20 @@ createP(PUNCTUATION.PAUSE, "、", true)
 
 createP(PUNCTUATION.SLASH, '/', false, true)
 
-createP(PUNCTUATION.LEFT_PARENTHESIS, '(', false, true)
-createP(PUNCTUATION.LEFT_PARENTHESIS, "（", true)
+createP(PUNCTUATION.LEFT_PARENTHESIS, '(', false, true, "", true, false)
+createP(PUNCTUATION.LEFT_PARENTHESIS, "（", true, false, "", true, false)
 
-createP(PUNCTUATION.RIGHT_PARENTHESIS, ')', false, true)
-createP(PUNCTUATION.RIGHT_PARENTHESIS, "）", true)
+createP(PUNCTUATION.RIGHT_PARENTHESIS, ')', false, true, "", false, true)
+createP(PUNCTUATION.RIGHT_PARENTHESIS, "）", true, false, "", false, true)
 
 
 createP(PUNCTUATION.ELLIPSIS, "...", false)
 createP(PUNCTUATION.ELLIPSIS, "......", false, true)
 
-createP(PUNCTUATION.LEFT_DOUBLE_QUOTATION_MARK, "“", true)
-createP(PUNCTUATION.RIGHT_DOUBLE_QUOTATION_MARK, "”", true)
+createP(PUNCTUATION.LEFT_DOUBLE_QUOTATION_MARK, "“", true, true, "", true, false)
+createP(PUNCTUATION.RIGHT_DOUBLE_QUOTATION_MARK, "”", true, true, "", false, true)
 
+createP(PUNCTUATION.BOOK, "<", false, false, "", false, true)
 
 
 export const punctuationNodeSetMeta: (node: PunctuationNode) => void = node => {
@@ -122,5 +138,3 @@ export const isLeftParenthesis: NodeCheckFunc = (node) => {
 export const isRightParenthesis: NodeCheckFunc = (node) => {
   return node.ptype === PUNCTUATION.RIGHT_PARENTHESIS
 }
-
-export type NodeCheckFunc = (node: Node) => boolean;

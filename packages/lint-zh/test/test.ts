@@ -1,7 +1,7 @@
 // import * as assert from "assert";
 
 import "mocha"
-import {plugins} from "../src/index";
+import {plugins} from "../src";
 
 import {expect} from "chai"
 import  * as ZHError from "../src/rules/error";
@@ -68,10 +68,43 @@ describe('zh.md rules', function () {
   });
 
 
+  it('ZH416_2_0', function () {
+    const output = remark().use(plugins).processSync(
+      "TiCDC 服务使用的时区。TiCDC 在内部转换 timestamp 等时间数据类型和向下游同步数据时使用该时区，默认为进程运行本地时区。（注意如果同时指定 `tz` 参数和 `sink-uri` 中的 `time-zone` 参数，TiCDC 进程内部使用 `tz` 指定的时区，sink 向下游执行时使用 `time-zone` 指定的时区）"
+    );
+    expect(output.messages.length).equal(0)
+  });
+
+  it('ZH416_2_1', function () {
+    const output = remark().use(plugins).processSync(
+      "TiCDC 服务使用的时区。TiCDC 在内部转换 timestamp 等时间数据类型和向下游同步数据时使用该时区，默认为进程运行本地时区，（注意如果同时指定 `tz` 参数和 `sink-uri` 中的 `time-zone` 参数，TiCDC 进程内部使用 `tz` 指定的时区，sink 向下游执行时使用 `time-zone` 指定的时区）"
+    );
+    exceptOneMsg(output,  "sentence ending punctuation '，' is illegal")
+  });
+
+  it('ZH416_2_2', function () {
+    const output = remark().use(plugins).processSync(
+      "TiCDC 在 PD 设置的服务级别 GC safepoint 的 TTL (Time To Live) 时长，单位为秒，默认值为 `86400`，即 24 小时。"
+    );
+    expect(output.messages.length).equal(0)
+  });
+
+
 
   it('ZH417', function () {
     const output = remark().use(plugins).processSync(
       "english sen can't use “it\". "
+    );
+    exceptOneMsg(output,  "shouldn't use full-width char:'“' in en sentence")
+  });
+
+
+  it('ZH200', function () {
+    const output = remark().use(plugins).processSync(
+      "- `state` 为该同步任务的状态：\n" +
+      "    - `normal`: 正常同步\n" +
+      "    - `stopped`: 停止同步（手动暂停或出错）\n" +
+      "    - `removed`: 已删除任务（只在指定 `--all` 选项时才会显示该状态的任务。未指定时，可通过 `query` 查询该状态的任务）"
     );
     exceptOneMsg(output,  "shouldn't use full-width char:'“' in en sentence")
   });
@@ -154,6 +187,22 @@ describe('zh.md rules', function () {
   it('ZH428', function () {
     const output = remark().use(plugins).processSync(
       "这好吗？ 这不好。这不讲武德！"
+    );
+    exceptOneMsg(output,  ZHError.ZH428)
+  });
+
+
+
+  it('ZH418', function () {
+    const output = remark().use(plugins).processSync(
+      "`POST` 参数表示新的日志级别，支持 [zap 提供的日志级别](https://godoc.org/go.uber.org/zap#UnmarshalText)：\"debug\"、\"info\"、\"warn\"、\"error\"、\"dpanic\"、\"panic\"、\"fatal\"。该接口参数为 JSON 编码，需要注意引号的使用：`'\"debug\"'`。\n"
+    );
+    exceptOneMsg(output,  ZHError.ZH428)
+  });
+
+  it('ZH418', function () {
+    const output = remark().use(plugins).processSync(
+      "- 对上游存在较大事务的场景提供部分支持，详见：[FAQ：TiCDC 是否支持同步大事务？有什么风险吗？](/ticdc/troubleshoot-ticdc.md#ticdc-支持同步大事务吗有什么风险吗)。"
     );
     exceptOneMsg(output,  ZHError.ZH428)
   });

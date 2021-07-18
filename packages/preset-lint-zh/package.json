@@ -1,13 +1,19 @@
 {
   "name": "preset-lint-zh",
-  "version": "0.2.2",
+  "version": "1.0.0-rc1",
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "bin": {
+    "zhmd": "lib/index.js"
+  },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "node lib/index.js"
   },
   "dependencies": {
-    "lint-zh": "0.2.1",
+    "commander": "^7.2.0",
+    "js-yaml": "^4.1.0",
+    "lint-zh": "1.0.0-rc1",
     "remark-cli": "^9.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-gfm": "^1.0.0",

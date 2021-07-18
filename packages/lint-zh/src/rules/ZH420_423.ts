@@ -1,5 +1,5 @@
 import {isPunctuation, isWhiteSpace, isWord} from "nlcst-types";
-import {rule, visit} from "./utils";
+import {lintRule, visit} from "./utils";
 import {isLeftParenthesis, isRightParenthesis, SentenceNode} from "nlcst-parser-chinese";
 import * as ZHError from "./error";
 
@@ -12,7 +12,7 @@ import * as ZHError from "./error";
 // 括号里既有中文又有英文（即只要括号内包含任何中文）时建议使用全角括号，括号前后不空格。
 // 【错误423】斜杠 (slash 或 forward slash) 和反斜杠 (backslash) 是两种符号。
 // 【正确示例】斜杠（slash 或 forward slash）和反斜杠 (backslash) 是两种符号。
-export const ZH420_423 = rule(":ZH420", (tree, file) => {
+export const ZH420_423 = lintRule("", (tree, file) => {
   visit(tree, "SentenceNode", (_sen: any) => {
     const sen: SentenceNode = _sen;
     let left;
@@ -25,7 +25,7 @@ export const ZH420_423 = rule(":ZH420", (tree, file) => {
       if (isPunctuation(child)) {
         if (isLeftParenthesis(child)) {
           if (left) {
-            file.message(ZHError.ZH423R, child?.position?.start, "ZH403")
+            file.message(ZHError.ZH423R, child?.position?.start, "ZH423")
             continue
           }
           left = child
@@ -35,7 +35,7 @@ export const ZH420_423 = rule(":ZH420", (tree, file) => {
 
         if (isRightParenthesis(child)) {
           if (!left) {
-            file.message(ZHError.ZH423L, child?.position?.start, "ZH403")
+            file.message(ZHError.ZH423L, child?.position?.start, "ZH423")
             continue
           }
 
@@ -61,10 +61,10 @@ export const ZH420_423 = rule(":ZH420", (tree, file) => {
             }
           } else {
             if (left.isFull) {
-              file.message(ZHError.ZH420L, left?.position?.start, "ZH420")
+              file.message(ZHError.ZH420L, left?.position?.start, "ZH420L")
             }
             if (child.isFull) {
-              file.message(ZHError.ZH420R, child?.position?.start, "ZH420")
+              file.message(ZHError.ZH420R, child?.position?.start, "ZH420R")
             }
 
             if (left_i !== 0 && !hadStartSpace) {
@@ -98,7 +98,7 @@ export const ZH420_423 = rule(":ZH420", (tree, file) => {
     }
 
     if (left) {
-      file.message("miss right parenthesis", sen.position.end, "ZH403")
+      file.message(ZHError.ZH423R, sen.position.end, "ZH423R")
     }
   });
 });

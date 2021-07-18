@@ -1,5 +1,5 @@
 import {rule, visit, visitChildren} from "./utils";
-import {Punctuation} from "nlcst-parser-chinese";
+import {PUNCTUATION, Punctuation} from "nlcst-parser-chinese";
 
 export const hasFullwidthInEn = rule(':ZH417', (tree, file) => {
 
@@ -9,6 +9,9 @@ export const hasFullwidthInEn = rule(':ZH417', (tree, file) => {
     if (!sentence.isFull) {
       visitChildren(sentence, Punctuation, (text) => {
         if (text.isFull) {
+          if (text.ptype === PUNCTUATION.COLON) {
+              return
+          }
           file.message(`shouldn't use full-width char:'${text.value}' in en sentence`, text?.position?.start);
         }
       });
