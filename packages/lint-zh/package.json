@@ -11,7 +11,7 @@
     "@types/mocha": "^8.2.0",
     "@types/unist": "^2.0.3",
     "chai": "^4.3.0",
-    "nlcst-parser-chinese": "1.0.0-rc1.0",
+    "nlcst-parser-chinese": "^1.0.0-rc1.0",
     "remark": "^13.0.0",
     "remark-retext": "^4.0.0",
     "ts-node": "^9.1.1",
