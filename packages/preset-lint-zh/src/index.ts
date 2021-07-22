@@ -73,6 +73,7 @@ const ignoreConfigs = new Map<string, IIgnore[]>();
 })
 
 let isError = false
+let isFailed = false
 paths.forEach(path => remark_zh.process(vfile.readSync(path), function (err: any, file: VFile) {
   total.push(...(file?.messages || []))
   const ignoreConfig = ignoreConfigs.get(path)
@@ -82,6 +83,10 @@ paths.forEach(path => remark_zh.process(vfile.readSync(path), function (err: any
   if (err) {
     console.error(report(err))
   }
+
+  if (file.messages.length > 0) {
+    isFailed = true
+  }
   file.messages.forEach(msg => {
     if (msg.fatal) {
       isError = true
@@ -89,6 +94,10 @@ paths.forEach(path => remark_zh.process(vfile.readSync(path), function (err: any
   })
   console.error(report(file))
 }))
+
+if (isFailed && config?.failed_msg) {
+  console.log('\n','\x1b[41m', config?.failed_msg ,'\x1b[0m');
+}
 
 if (isError) {
   process.exit(1)
